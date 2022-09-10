@@ -2,13 +2,9 @@ name: 'Terraform GitHub Actions'
 
 on:
   push:
-    branches: 
-      - "main"
-      - "feature" 
+    branches: ["main", "feature"] 
   pull_request:
-  tags:
-    - v1.*
-    - v2
+    branches: ["main"]
 
 permissions:
   contents: read
