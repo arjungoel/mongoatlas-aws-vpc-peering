@@ -22,7 +22,7 @@ resource "aws_default_route_table" "aws_mongodbatlas_tb" {
   default_route_table_id = aws_vpc.main.default_route_table_id
 
   route {
-    cidr_block = mongodbatlas_network_container.elasticsi_container.atlas_cidr_block
+    cidr_block = mongodbatlas_network_container.mongo_container.atlas_cidr_block
     gateway_id = mongodbatlas_network_peering.test.connection_id
   }
 }
