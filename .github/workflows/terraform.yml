@@ -54,7 +54,8 @@ jobs:
         MONGODBATLAS_ORGID: ${{ secrets.MONGODBATLAS_ORGID }}
         MONGODBATLAS_PRIVATE_KEY: ${{ secrets.MONGODBATLAS_PRIVATE_KEY }}
         MONGODBATLAS_PUBLIC_KEY: ${{ secrets.MONGODBATLAS_PUBLIC_KEY }}
-      run: terraform plan var.aws_access_key="$AWS_ACCESS_KEY"
+      if: github.event_name == 'pull'
+      run: terraform plan -input=false
       continue-on-error: true
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
