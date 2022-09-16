@@ -54,7 +54,6 @@ jobs:
         MONGODBATLAS_ORGID: ${{ secrets.MONGODBATLAS_ORGID }}
         MONGODBATLAS_PRIVATE_KEY: ${{ secrets.MONGODBATLAS_PRIVATE_KEY }}
         MONGODBATLAS_PUBLIC_KEY: ${{ secrets.MONGODBATLAS_PUBLIC_KEY }}
-      if: github.event_name == 'pull'
       run: terraform plan
       continue-on-error: true
 
