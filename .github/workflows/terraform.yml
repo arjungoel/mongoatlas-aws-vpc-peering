@@ -54,7 +54,7 @@ jobs:
         MONGODBATLAS_ORGID: ${{ secrets.MONGODBATLAS_ORGID }}
         MONGODBATLAS_PRIVATE_KEY: ${{ secrets.MONGODBATLAS_PRIVATE_KEY }}
         MONGODBATLAS_PUBLIC_KEY: ${{ secrets.MONGODBATLAS_PUBLIC_KEY }}
-      run: echo $env
+      run: terraform plan -var 'aws_access_key=$AWS_ACCESS_KEY' 'aws_secret_access_key=$AWS_SECRET_ACCESS_KEY' 'mongodbatlas_db_password=$MONGODBATLAS_DB_PASSWORD' 'mongodbatlas_db_username=$$MONGODBATLAS_DB_USERNAME' 'mongodbatlas_orgid=$MONGODBATLAS_ORGID' 'mongodbatlas_public_key=$MONGODBATLAS_PUBLIC_KEY' 'mongodbatlas_private_key=$MONGODBATLAS_PRIVATE_KEY'
       continue-on-error: true
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
