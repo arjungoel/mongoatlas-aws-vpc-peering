@@ -12,7 +12,7 @@ permissions:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: [self-hosted, aws-runner]
+    runs-on: [self-hosted]
     defaults:
       run:
         shell: bash
