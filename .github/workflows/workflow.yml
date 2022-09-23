@@ -17,14 +17,14 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: clone repository
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: setup terraform
         run: |
           wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
-          7z terraform_0.14.3_linux_amd64.zip
-          mv terraform /usr/local/bin/
-      - name: terraform fmt
-        id: fmt
-        run: terraform fmt
-        continue-on-error: false
+      #     7z x terraform_0.14.3_linux_amd64.zip
+      #     mv terraform /usr/local/bin/
+      # - name: terraform fmt
+      #   id: fmt
+      #   run: terraform fmt
+      #   continue-on-error: false
