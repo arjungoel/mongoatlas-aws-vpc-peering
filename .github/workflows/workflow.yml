@@ -24,7 +24,7 @@ jobs:
           wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
       - name: unzip terraform zip
         uses: actions/checkout@v2
-        run: unzip terraform_0.14.3_linux_amd64.zip
+        run: 7z x terraform_0.14.3_linux_amd64.zip
       #     mv terraform /usr/local/bin/
       # - name: terraform fmt
       #   id: fmt
