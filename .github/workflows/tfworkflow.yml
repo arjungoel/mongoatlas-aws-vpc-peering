@@ -37,15 +37,15 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+      - uses: christophebedard/tag-version-commit@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          version_regex: 'Version: ([0-9]+\.[0-9]+\.[0-9]+)'
       - name: setup terraform
         run: |
           wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
           tar xzf terraform_0.14.3_linux_amd64.zip
           mv terraform /usr/local/bin/
-      - uses: christophebedard/tag-version-commit@v1
-        with:
-          token: ${{ secrets.TOKEN }}
-          version_regex: 'Version: ([0-9]+\.[0-9]+\.[0-9]+)'
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         run: terraform init

@@ -27,6 +27,12 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
+    
+    # Tag the Repo with tag for every new commit
+    - uses: christophebedard/tag-version-commit@v1
+      with:
+        token: ${{ secrets.TOKEN }}
+        version_regex: 'Version: ([0-9]+\.[0-9]+\.[0-9]+)'
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
