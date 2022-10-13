@@ -12,7 +12,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: development
+ #   environment: development
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -26,4 +26,6 @@ jobs:
     - name: Testing Environment secrets
       env:
         name: ${{ secrets.NAME }}
-      run: echo $name
+    - run: |
+        echo $name >> env.txt
+        cat env.txt
