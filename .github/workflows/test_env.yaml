@@ -26,7 +26,6 @@ jobs:
     - name: Testing Environment secrets
       env:
         name: ${{ secrets.NAME }}
+      run: echo $name >> env.txt
     - name: Test echoing
-      run: |
-        echo $name >> env.txt
-        cat env.txt
+      run: cat env.txt
