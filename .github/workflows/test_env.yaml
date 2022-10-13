@@ -1,0 +1,29 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches: 
+      - development
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: development
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Testing Environment secrets
+      env:
+        name: ${{ secrets.NAME }}
+      run: echo $name
