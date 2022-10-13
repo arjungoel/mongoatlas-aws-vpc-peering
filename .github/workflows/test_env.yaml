@@ -26,4 +26,5 @@ jobs:
     - name: Testing Environment secrets
       env:
         name: ${{ secrets.NAME }}
+        domain: ${{ secrets.DOMAIN}}
       run: echo $name
